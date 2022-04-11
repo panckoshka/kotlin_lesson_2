@@ -21,11 +21,11 @@ fun commission(nameCard: String, payment: Int): Int {
     return when {
         nameCard == "Мир" && commissioMirVisa(payment) > 35 ->
             commissioMirVisa(payment)
-        nameCard == "Мир" && commissioMirVisa(payment) > 35 -> 35
+        nameCard == "Мир" && commissioMirVisa(payment) < 35 -> 35
 
         nameCard == "Visa" && commissioMirVisa(payment) > 35 ->
             commissioMirVisa(payment)
-        nameCard == "Visa" && commissioMirVisa(payment) > 35 -> 35
+        nameCard == "Visa" && commissioMirVisa(payment) < 35 -> 35
 
         nameCard == "VK Pay" -> 0
 
