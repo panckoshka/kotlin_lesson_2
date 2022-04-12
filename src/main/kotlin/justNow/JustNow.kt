@@ -1,9 +1,9 @@
 package justNow
 
-val SECOND = 1
-val MINUTE = SECOND * 60
-val HOUR = MINUTE * 60
-val DAY = HOUR * 24
+val SECOND: UInt = 1u
+val MINUTE: UInt = SECOND * 60u
+val HOUR = MINUTE * 60u
+val DAY = HOUR * 24u
 
 
 fun main() {
@@ -11,26 +11,26 @@ fun main() {
     println("час = 3_600, сутки = 86_400")
     println()
     print("Введе число (в секндах и не должно быть отрицательным): ")
-    val text = readln().toInt()
-    val result = agoToText(text)
+    val time = readln().toUInt()
+    val result = agoToText(time)
     print(result)
 }
 
-fun agoToText(text: Int): String {
+fun agoToText(time: UInt): String {
     return when {
-        text >= SECOND && text <= MINUTE -> "был(а) только что"
+        time < MINUTE -> "был(а) только что"
 
-        text > MINUTE && text <= HOUR -> {
-            val min: Int = text / MINUTE
+        time < HOUR -> {
+            val min: UInt = time / MINUTE
             "$min минут(а) назад"
         }
-        text > HOUR && text <= DAY -> {
-            val hour: Int = text / HOUR
+        time < DAY -> {
+            val hour: UInt = time / HOUR
             "$hour час(а,ов) назад"
         }
-        text > DAY && text < DAY * 2 -> "сегодня"
-        text > DAY * 2 && text < DAY * 3 -> "вчера"
-        text > DAY * 3 -> "давно"
+        time < DAY * 2u -> "сегодня"
+        time < DAY * 3u -> "вчера"
+        time > DAY * 3u -> "давно"
 
         else -> throw Exception("Ошибка ввода")
 //        in 0..60 -> print("был(а) только что")
