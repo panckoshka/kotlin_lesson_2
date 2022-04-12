@@ -87,7 +87,7 @@ fun commissionMasterCardMaestro(payment: Int, monthPayments: Int): Int {
 
 fun commissioMirVisa(payment: Int, monthPayments: Int): Int {
     val commissio = ((payment.toDouble() * 0.0075) * 100).toInt()
-    if (commissio > 3500 && payment < 150_000 && monthPayments < 600_000) {
+    if (commissio > 3500) {
         return commissio
     }
     return 3500
