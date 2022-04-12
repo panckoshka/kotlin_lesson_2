@@ -30,7 +30,7 @@ fun agoToText(time: UInt): String {
         }
         time < DAY * 2u -> "сегодня"
         time < DAY * 3u -> "вчера"
-        time > DAY * 3u -> "давно"
+        time >= DAY * 3u -> "давно"
 
         else -> throw Exception("Ошибка ввода")
 //        in 0..60 -> print("был(а) только что")
